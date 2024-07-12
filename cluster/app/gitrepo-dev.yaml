@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: my-vue-pwa
+  namespace: dev
+spec:
+  url: https://gitlab.com/yevhen-hrytsai/my-vue-pwa
+  interval: 1m0s
+  ref:
+    branch: dev

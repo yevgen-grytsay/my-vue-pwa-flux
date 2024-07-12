@@ -1,0 +1,32 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: my-vue-pwa
+  namespace: prod
+spec:
+  targetNamespace: prod
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: my-vue-pwa
+  path: ./k8s/main
+  prune: true
+  wait: true
+  timeout: 5m0s
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: my-vue-pwa
+  namespace: dev
+spec:
+  targetNamespace: dev
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: my-vue-pwa
+  path: ./k8s/dev
+  prune: true
+  wait: true
+  timeout: 5m0s
